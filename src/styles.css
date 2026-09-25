@@ -83,7 +83,7 @@ h1 {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 18px;
 }
@@ -104,7 +104,13 @@ h1 {
 .metric strong {
   display: block;
   margin-top: 8px;
-  font-size: 30px;
+  font-size: 24px;
+}
+
+.col {
+  display: grid;
+  gap: 18px;
+  align-content: start;
 }
 
 .workspace {
@@ -251,10 +257,227 @@ textarea {
   padding: 32px 12px;
 }
 
+/* 地图与站点列表 */
+.map-panel .toolbar {
+  margin-bottom: 10px;
+}
+
+.month-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #445069;
+}
+
+.month-picker input {
+  width: auto;
+}
+
+.map {
+  height: 360px;
+  border-radius: 8px;
+  border: 1px solid #dfe7f1;
+  background: #e8eef5;
+  z-index: 0;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 10px 0 0;
+  color: #69758c;
+  font-size: 12px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.dot-on { background: #176b87; }
+.dot-pending { background: #d9a514; }
+.dot-off { background: #9aa7b8; }
+
+.station-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.station-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #dfe7f1;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fbfcfe;
+  cursor: pointer;
+}
+
+.station-row.active {
+  border-color: #176b87;
+  box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.15);
+}
+
+.station-main .record-title {
+  font-size: 15px;
+}
+
+.inv {
+  font-weight: 400;
+  color: #69758c;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.station-sub {
+  margin: 4px 0 8px;
+  color: #69758c;
+  font-size: 12px;
+}
+
+.station-nums {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+  font-size: 13px;
+  color: #536078;
+}
+
+.station-nums strong {
+  font-size: 15px;
+  color: #172033;
+}
+
+.row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* 表单辅助 */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.seg-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #445069;
+  font-size: 14px;
+}
+
+.seg-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+}
+
+.hint {
+  margin: 0;
+  color: #69758c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.msg {
+  margin: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  list-style: none;
+}
+
+.msg.ok { background: #e8f4ef; color: #14724f; }
+.msg.warn { background: #fdf3d7; color: #8a6d1a; }
+.msg.err { background: #fbe9e5; color: #c84b31; }
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.badge.ok { background: #e8f4ef; color: #14724f; }
+.badge.warn { background: #fdf3d7; color: #8a6d1a; }
+.badge.err { background: #fbe9e5; color: #c84b31; }
+
+/* 账本表格与账单 */
+table.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+table.ledger th,
+table.ledger td {
+  padding: 8px;
+  border-bottom: 1px solid #e7edf4;
+  text-align: left;
+}
+
+table.ledger th {
+  color: #69758c;
+  font-weight: 600;
+}
+
+.num {
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.preview {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.bills {
+  margin-top: 14px;
+}
+
+table.splits {
+  background: #f4f8fb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.adj {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px dashed #e3b8ae;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 8px 0;
+  font-size: 13px;
+  color: #8a4436;
+}
+
+.actions input {
+  flex: 1;
+  min-width: 160px;
+}
+
 @media (max-width: 860px) {
   .app { padding: 18px; }
   .topbar, .workspace { grid-template-columns: 1fr; }
   .stack { justify-content: flex-start; }
-  .metrics { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: 1fr 1fr; }
   .details { grid-template-columns: 1fr; }
+  .station-row { grid-template-columns: 1fr; }
+  .station-nums { text-align: left; }
 }
